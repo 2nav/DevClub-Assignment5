@@ -1,0 +1,7 @@
+{% extends 'Users/base.html' %} {% block content %}
+<div>
+  Your courses - {% for course in courses %}
+  <div><a href="{% url 'course-detail' course.id %}"> {{course.code}}</a></div>
+  {% endfor %}
+</div>
+{% endblock content %}

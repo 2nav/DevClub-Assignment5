@@ -1,0 +1,20 @@
+{% extends 'Users/base.html' %} {% block content %}
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Course</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for grade in grades %}
+    <tr>
+      <td>{{grade.student}}</td>
+      <td>{{grade.course.code}}</td>
+      <td>{{grade.grade}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

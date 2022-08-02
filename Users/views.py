@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView
 
 from Users.models import Course
+from Documents.models import Doc
 
 
 def is_member(grp, user):
@@ -21,5 +22,10 @@ def home(request):
     return render(request, 'Users/home.html', context)
 
 
-class CourseDetailView(DetailView):
-    model = Course
+def CourseDetailView(request, id):
+    context = {
+        'course': Course.objects.get(id=id),
+        'documents': Doc.objects.filter(course=Course.objects.get(id=id))
+    }
+
+    return render(request, 'Users/course_detail.html', context)

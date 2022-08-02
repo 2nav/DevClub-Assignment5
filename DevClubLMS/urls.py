@@ -28,8 +28,7 @@ urlpatterns = [
          auth_views.LogoutView.as_view(template_name='Users/logout.html'),
          name='logout'),
     path('', user_views.home, name='user-home'),
-    path('course/<int:pk>/',
-         user_views.CourseDetailView.as_view(),
+    path('course/<int:id>/', user_views.CourseDetailView,
          name='course-detail'),
     path('grades/', grade_views.home)
 ]

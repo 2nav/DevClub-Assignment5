@@ -1,5 +1,13 @@
 {% extends 'Users/base.html' %} {% block content %}
-<h1>{{object.code}}</h1>
-<h3>{{object.instructor}}</h3>
-<p>{{object.description}}</p>
+<h1>{{course.code}}</h1>
+<h3>{{course.instructor}}</h3>
+<p>{{course.description}}</p>
+
+<h2>Documents</h2>
+<ul>
+  {% for doc in documents %}
+  <li>{{doc.doc_url}}</li>
+  {% endfor %}
+</ul>
+
 {% endblock content %}

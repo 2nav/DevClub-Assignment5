@@ -30,6 +30,7 @@
 - More forms needed so that dependence on admin page becomes less
 - More permission checks to be implemented
 - Using no CSS/JS makes site look bad. It loads fast though.
+- Admin has to do almost everything, forms in the future will divide this work
 
 # DevClub Assignment 5
 

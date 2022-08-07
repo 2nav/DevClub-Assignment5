@@ -1,0 +1,17 @@
+{% extends 'Users/base.html' %} {% block content %}
+<h1>Messages</h1>
+<ul>
+  {% for message in messages %}
+  <li>
+    <h3>{{message.sender}}</h3>
+    <h5>{{message.txt}}</h5>
+    <h6>{{message.date_added}}</h6>
+  </li>
+  {% endfor %}
+</ul>
+<form method="post">
+  {% csrf_token %}{{form}}
+  <button type="submit">Send</button>
+</form>
+
+{% endblock content %}

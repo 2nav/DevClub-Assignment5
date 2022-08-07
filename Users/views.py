@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
 
-from Users.models import Course
+from Users.models import Course, Student
 from Documents.models import Doc
 from Communication.models import Announcement
 
@@ -12,7 +12,9 @@ def is_member(grp, user):
 
 def home(request):
     if is_member('Student', request.user):
-        context = {'courses': request.user.courses.all()}
+        context = {
+            'courses': Student.objects.get(user=request.user).courses.all()
+        }
     elif is_member('Instructor', request.user):
         context = {
             'courses': Course.objects.filter(instructor=request.user.id)

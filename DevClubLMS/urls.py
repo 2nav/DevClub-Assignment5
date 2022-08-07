@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from Users import views as user_views
 from Grades import views as grade_views
+from Communication import views as communication_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -30,5 +31,9 @@ urlpatterns = [
     path('', user_views.home, name='user-home'),
     path('course/<int:id>/', user_views.CourseDetailView,
          name='course-detail'),
-    path('grades/', grade_views.home)
+    path('grades/', grade_views.home),
+    path('messages/', communication_views.home),
+    path('messages/user/<int:id>',
+         communication_views.MessageDetailView,
+         name='message-detail')
 ]

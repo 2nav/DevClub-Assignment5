@@ -3,6 +3,7 @@
 - Uses only HTML, so pages are very fast and responsive
 - Messaging feature is built from scratch, no tutorials watched
 - Has Users, Documents, Grades and Communication apps
+- Environment variable for SECRET_KEY
 
 ### Users
 

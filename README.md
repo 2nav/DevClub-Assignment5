@@ -1,3 +1,5 @@
+https://litelms.herokuapp.com/
+
 The deployment on Heroku has no users. Some users can be found on the local version which can be started by `python manage.py runserver` after creating a venv and installing requirements.txt as instructed in original readme.
 Heroku has admin as admin and pass is 1234 . Local version has admin as 2nav and pass as 1234 . All other users have password as Testing321 on the local version.
 

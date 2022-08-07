@@ -31,6 +31,7 @@
 - More permission checks to be implemented
 - Using no CSS/JS makes site look bad. It loads fast though.
 - Admin has to do almost everything, forms in the future will divide this work
+- No email feature added
 
 # DevClub Assignment 5
 

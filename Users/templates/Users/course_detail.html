@@ -7,7 +7,11 @@
 <ul>
   {% for announcement in announcements %}
   <li>
-    <h3>{{announcement.title}}</h3>
+    <h3>
+      <a href="{% url 'announcement-detail' announcement.id %}"
+        >{{announcement.title}}</a
+      >
+    </h3>
     <h5>{{announcement.txt}}</h5>
   </li>
   {% endfor %}

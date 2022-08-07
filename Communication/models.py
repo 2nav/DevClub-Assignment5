@@ -11,12 +11,21 @@ class Announcement(models.Model):
     date_added = models.DateTimeField(default=timezone.now)
 
 
-class Message(models.Model):
+class Reply(models.Model):
+    announcement = models.ForeignKey(Announcement, on_delete=models.CASCADE)
     txt = models.TextField()
     date_added = models.DateTimeField(default=timezone.now)
     sender = models.ForeignKey(User,
                                related_name="sender",
                                on_delete=models.CASCADE)
+
+
+class Message(models.Model):
+    txt = models.TextField()
+    date_added = models.DateTimeField(default=timezone.now)
+    sender = models.ForeignKey(User,
+                               related_name="message_sender",
+                               on_delete=models.CASCADE)
     reciever = models.ForeignKey(User,
-                                 related_name="reciever",
+                                 related_name="message_reciever",
                                  on_delete=models.CASCADE)

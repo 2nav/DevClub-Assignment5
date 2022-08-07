@@ -1,0 +1,20 @@
+{% extends 'Users/base.html' %} {% block content %}
+<h1>{{announcement.title}}</h1>
+<h2>{{announcement.course}}</h2>
+<h3>{{announcement.txt}}</h3>
+<h5>{{announcement.date_added}}</h5>
+<ul>
+  {% for reply in replies %}
+  <li>
+    <h3>{{reply.sender}}</h3>
+    <h5>{{reply.txt}}</h5>
+    <h6>{{reply.date_added}}</h6>
+  </li>
+  {% endfor %}
+</ul>
+<form method="post">
+  {% csrf_token %}{{form}}
+  <button type="submit">Add Reply</button>
+</form>
+
+{% endblock content %}

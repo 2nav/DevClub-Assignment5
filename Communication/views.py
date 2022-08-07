@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.db.models import Q
 from itertools import chain
-from Communication.models import Message
-from .forms import MessageForm
+from Communication.models import Announcement, Message, Reply
+from .forms import MessageForm, ReplyForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
@@ -11,6 +11,22 @@ from django.urls import reverse
 def home(request):
     context = {'users': User.objects.all()}
     return render(request, 'Communication/home.html', context)
+
+
+def AnnouncementDetailView(request, id):
+    announcement = Announcement.objects.get(id=id)
+    replies = Reply.objects.filter(announcement=announcement)
+    form = ReplyForm()
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            form.instance.sender = request.user
+            form.instance.announcement = announcement
+            form.save()
+            '''return HttpResponseRedirect(
+                reverse('announcement-detail', args=[id]))'''
+    context = {"announcement": announcement, "replies": replies, "form": form}
+    return render(request, "Communication/announcement_detail.html", context)
 
 
 def MessageDetailView(request, id):

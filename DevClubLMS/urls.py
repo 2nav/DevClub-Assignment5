@@ -35,5 +35,8 @@ urlpatterns = [
     path('messages/', communication_views.home),
     path('messages/user/<int:id>',
          communication_views.MessageDetailView,
-         name='message-detail')
+         name='message-detail'),
+    path('announcements/<int:id>',
+         communication_views.AnnouncementDetailView,
+         name='announcement-detail')
 ]

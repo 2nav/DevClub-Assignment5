@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
-
 from Users.models import Course, Student
 from Documents.models import Doc
 from Communication.models import Announcement

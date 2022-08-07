@@ -6,13 +6,16 @@ from Communication.models import Announcement, Message, Reply
 from .forms import MessageForm, ReplyForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def home(request):
     context = {'users': User.objects.all()}
     return render(request, 'Communication/home.html', context)
 
 
+@login_required
 def AnnouncementDetailView(request, id):
     announcement = Announcement.objects.get(id=id)
     replies = Reply.objects.filter(announcement=announcement)
@@ -29,6 +32,7 @@ def AnnouncementDetailView(request, id):
     return render(request, "Communication/announcement_detail.html", context)
 
 
+@login_required
 def MessageDetailView(request, id):
     p1 = User.objects.filter(id=id)
     p2 = request.user

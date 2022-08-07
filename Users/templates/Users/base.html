@@ -9,6 +9,14 @@
   </head>
   <body>
     <h1>Hello There</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'user-home'%}">Home</a></li>
+        <li><a href="{% url 'grades-home'%}">Grades</a></li>
+        <li><a href="{% url 'messages-home'%}">Messages</a></li>
+        <li><a href="{% url 'logout'%}">Logout</a></li>
+      </ul>
+    </nav>
     {% block content %}{% endblock %}
   </body>
 </html>

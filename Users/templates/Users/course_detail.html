@@ -1,4 +1,4 @@
-{% extends 'Users/base.html' %} {% block content %}
+{% extends 'Users/base.html' %} {% block content %} {% if flag %}
 <h1>{{course.code}}</h1>
 <h3>{{course.instructor}}</h3>
 <p>{{course.description}}</p>
@@ -22,5 +22,6 @@
   <li><a href="{{doc.doc_url}}">{{doc.title}}</a></li>
   {% endfor %}
 </ul>
-
-{% endblock content %}
+{% else %}
+<h3>You might not be registered for this course</h3>
+{% endif %} {% endblock content %}

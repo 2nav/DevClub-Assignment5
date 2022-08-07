@@ -1,3 +1,36 @@
+## General Features
+
+- Uses only HTML, so pages are very fast and responsive
+- Messaging feature is built from scratch, no tutorials watched
+- Has Users, Documents, Grades and Communication apps
+
+### Users
+
+- 2 types - **Student** and **Instructor**, **Admin** is managed by django default admin stuff
+- **Course** can be registered by admin
+
+### Grades
+
+- simple grades out of 100 (intended)
+
+### Documents
+
+- Upload on any cloud and add document using link on admin page
+
+### Communication
+
+- Has **announcement** for courses
+- Has **Reply** for the announcement
+- Has **Messages** to message people
+
+# Known Issues
+
+- Grades can be added in courses in which the student has not registered. To be fixed later by adding some forms and checks
+- Reply isn't in threads. Can be fixed later by setting target of replies
+- More forms needed so that dependence on admin page becomes less
+- More permission checks to be implemented
+- Using no CSS/JS makes site look bad. It loads fast though.
+
 # DevClub Assignment 5
 
 You have learnt about backend engineering with Django in our session. Now use it to create a web application by yourself!

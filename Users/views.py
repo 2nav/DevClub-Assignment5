@@ -3,6 +3,7 @@ from django.views.generic import DetailView
 
 from Users.models import Course
 from Documents.models import Doc
+from Communication.models import Announcement
 
 
 def is_member(grp, user):
@@ -24,8 +25,12 @@ def home(request):
 
 def CourseDetailView(request, id):
     context = {
-        'course': Course.objects.get(id=id),
-        'documents': Doc.objects.filter(course=Course.objects.get(id=id))
+        'course':
+        Course.objects.get(id=id),
+        'documents':
+        Doc.objects.filter(course=Course.objects.get(id=id)),
+        'announcements':
+        Announcement.objects.filter(course=Course.objects.get(id=id))
     }
 
     return render(request, 'Users/course_detail.html', context)

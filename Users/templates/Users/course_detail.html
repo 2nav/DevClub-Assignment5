@@ -3,10 +3,19 @@
 <h3>{{course.instructor}}</h3>
 <p>{{course.description}}</p>
 
+<h2>Announcements</h2>
+<ul>
+  {% for announcement in announcements %}
+  <li>
+    <h3>{{announcement.title}}</h3>
+    <h5>{{announcement.txt}}</h5>
+  </li>
+  {% endfor %}
+</ul>
 <h2>Documents</h2>
 <ul>
   {% for doc in documents %}
-  <li>{{doc.doc_url}}</li>
+  <li><a href="{{doc.doc_url}}">{{doc.title}}</a></li>
   {% endfor %}
 </ul>
 
